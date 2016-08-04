@@ -1,4 +1,4 @@
-local fenv=require('fenv_kostyl')
+local fenv=require('fenv_hack')
 local debug_grammar = false
 local lpeg = require("lpeg")
 lpeg.setmaxstack(10000)
