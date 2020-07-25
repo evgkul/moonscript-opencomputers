@@ -119,7 +119,7 @@ insert_loader = function(pos)
   if not package.moonpath then
     package.moonpath = create_moonpath(package.path)
   end
-  local loaders = package.loaders or package.searchers
+  local loaders = package.loaders or package.searchers or {package.searchpath}
   for _index_0 = 1, #loaders do
     local loader = loaders[_index_0]
     if loader == moon_loader then
@@ -130,7 +130,7 @@ insert_loader = function(pos)
   return true
 end
 remove_loader = function()
-  local loaders = package.loaders or package.searchers
+  local loaders = package.loaders or package.searchers or {package.searchpath}
   for i, loader in ipairs(loaders) do
     if loader == moon_loader then
       remove(loaders, i)
